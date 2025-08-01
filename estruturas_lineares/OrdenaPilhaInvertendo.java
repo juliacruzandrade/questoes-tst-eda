@@ -90,20 +90,25 @@ public class OrdenaPilhaInvertendo{
     // isEmpty etc.
     public int indexOf(int valor) {
         int saida = -1;
-
-        Pilha aux = new Pilha(this.pilha.length);
+        int cont = 0;
+        Pilha aux = new Pilha(this.size());
         while(!isEmpty()){
             aux.push(this.pop());
             if(aux.peek() == valor){
-                saida = aux.size() - 1;
-                break;
+                saida = cont;
             }
+            cont++;
         }
 
         retornaElementosParaPilha(aux);
 
         return saida;
     }
+
+    public int size() {
+        return topo + 1;
+    }
+
 
     public int size() {
         return topo + 1;
